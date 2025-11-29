@@ -22,7 +22,7 @@ jobs:
   linter:
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:focal 
+      image: mcr.microsoft.com/playwright:focal
     steps:
       - name: Checkout Code Repository
         uses: actions/checkout@v4
@@ -53,7 +53,7 @@ jobs:
           cd e2e
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-    
+
       - name: Install Playwright browsers
         run: python -m playwright install
 
