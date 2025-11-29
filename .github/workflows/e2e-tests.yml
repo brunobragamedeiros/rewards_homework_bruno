@@ -21,6 +21,8 @@ concurrency:
 jobs:
   linter:
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:focal 
     steps:
       - name: Checkout Code Repository
         uses: actions/checkout@v4
