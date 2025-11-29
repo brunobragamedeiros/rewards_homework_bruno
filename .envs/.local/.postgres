@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=holistiplan
+POSTGRES_USER=PylQOHKZdvHuwvFNHvDRnXEQzHIFVhni
+POSTGRES_PASSWORD=kDOofPfQRihlyGh9HNE281gdPKVYJGLNFXnVwMApsZeO5jkYy7R5qdp18duopT3i
