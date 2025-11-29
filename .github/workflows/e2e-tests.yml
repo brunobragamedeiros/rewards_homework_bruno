@@ -63,7 +63,7 @@ jobs:
               pytest -m regression tests/tests.py --html=report.html --self-contained-html
         env:
          BASE_URL: ${{ secrets.BASE_URL }}
-         USER_ADDRESS: ${{ secrets_USER_ADDRESS }}
+         USER_ADDRESS: ${{ secrets.USER_ADDRESS }}
          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
 
       - name: Tear down the Stack
