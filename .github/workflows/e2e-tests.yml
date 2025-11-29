@@ -60,6 +60,15 @@ jobs:
       - name: Install Playwright browsers
         run: python -m playwright install
 
+
+      - name: Wait for localhost
+        run: |
+          echo "Waiting for server to be ready..."
+          until curl --output /dev/null --silent --head --fail http://localhost:3000; do
+            sleep 2
+          done
+
+
       - name: Run E2E tests
         run: |
               cd e2e
