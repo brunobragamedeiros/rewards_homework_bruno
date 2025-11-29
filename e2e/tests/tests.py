@@ -1,15 +1,15 @@
-import pytest
 import logging
-import sys
 import os
+import sys
+
+import pytest
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from pages.email_page import EmailPage
-from pages.sign_up import SignUpPage
-from pages.sign_in import SignInPage
 from pages.rewards_page import RewardsPage
-
-
+from pages.sign_in import SignInPage
+from pages.sign_up import SignUpPage
 
 # @pytest.mark.require_auth
 # @pytest.mark.regression
@@ -61,6 +61,7 @@ from pages.rewards_page import RewardsPage
 
 #     assert amount_points_before_claiming > amount_points_after_claiming, f"Expected the amount before claiming {amount_points_before_claiming} to be higher than {amount_points_after_claiming}"
 
+
 @pytest.mark.require_auth
 @pytest.mark.regression
 def test_user_cannot_claim_when_out_of_points(page, add_5_points):
@@ -85,7 +86,7 @@ def test_user_cannot_claim_when_out_of_points(page, add_5_points):
 #     """
 #     - Log into the system with a valid user
 #     - Adds bonus
-#     - Refresh page 
+#     - Refresh page
 #     - Bonus is there
 #     """
 #     print(test_add_bonus.__doc__)
@@ -97,7 +98,7 @@ def test_user_cannot_claim_when_out_of_points(page, add_5_points):
 #     rewards_page.add_bonus(15)
 #     page.reload()
 #     rewards_page.validate_remaining_points_are_displayed(amount_points_remaining + 15)
-   
+
 
 # @pytest.mark.require_auth
 # @pytest.mark.regression
