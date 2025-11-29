@@ -60,11 +60,15 @@ jobs:
       - name: Run E2E tests
         run: |
               cd e2e
+              lsof -i :3000
               pytest -m regression tests/tests.py --html=report.html --self-contained-html
         env:
          BASE_URL: ${{ secrets.BASE_URL }}
          USER_ADDRESS: ${{ secrets.USER_ADDRESS }}
          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+
+      - name: Show secret
+        run: echo "BASE_URL is ${{ secrets.BASE_URL }}"
 
       - name: Tear down the Stack
         run: docker compose -f local.yml down
