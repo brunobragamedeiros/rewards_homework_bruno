@@ -72,7 +72,7 @@ jobs:
       - name: Run E2E tests
         run: |
               cd e2e
-              pytest -m regression tests/tests.py --html=report.html --self-contained-html
+              pytest tests/tests.py --html=report.html --self-contained-html
         env:
          BASE_URL: ${{ secrets.BASE_URL }}
          USER_ADDRESS: ${{ secrets.USER_ADDRESS }}
@@ -83,3 +83,10 @@ jobs:
 
       - name: Tear down the Stack
         run: docker compose -f local.yml down
+
+      - name: Upload Playwright HTML Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: e2e-report
+          path: e2e/report.html
+
