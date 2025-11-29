@@ -284,3 +284,7 @@ webpack-stats.json
 /.idea/holistiplan.iml
 /.idea/misc.xml
 /.idea/vcs.xml
+
+
+e2e/videos
+e2e/report.html
