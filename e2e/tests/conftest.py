@@ -43,7 +43,7 @@ def ensure_auth_state():
         return
 
     with sync_playwright() as pw:
-        browser = pw.chromium.launch(headless=True)
+        browser = pw.chromium.launch(headless=False)
         context = browser.new_context(base_url=url)
         page = context.new_page()
         page.set_default_timeout(50000)
