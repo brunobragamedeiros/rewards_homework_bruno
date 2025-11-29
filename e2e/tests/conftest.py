@@ -16,7 +16,7 @@ def context(request, ensure_auth_state):
     storage_state_file = AUTH_FILE if "require_auth" in request.keywords else None
 
     with sync_playwright() as pw:
-        browser = pw.chromium.launch(headless=False)
+        browser = pw.chromium.launch(headless=True)
         ctx = browser.new_context(base_url=url, record_video_dir="videos", storage_state=storage_state_file)
         yield ctx
 
@@ -43,7 +43,7 @@ def ensure_auth_state():
         return
 
     with sync_playwright() as pw:
-        browser = pw.chromium.launch(headless=False)
+        browser = pw.chromium.launch(headless=True)
         context = browser.new_context(base_url=url)
         page = context.new_page()
         page.set_default_timeout(50000)
