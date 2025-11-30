@@ -67,7 +67,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: failed-test-videos
-          path: videos/*.webm
+          path: e2e/videos/*.webm
 
       - name: Tear down the Stack
         if: always()
