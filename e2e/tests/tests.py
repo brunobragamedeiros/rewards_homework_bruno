@@ -118,7 +118,7 @@ def test_user_cannot_claim_when_out_of_points(page, add_5_points):
     )
 
 @pytest.mark.require_auth
-@pytest.mark.smoke
+@pytest.mark.regression
 def test_add_bonus(page):
     """
     - Log into the system with a valid user
