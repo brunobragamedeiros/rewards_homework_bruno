@@ -44,7 +44,7 @@ Create a `.env` file in the e2e folder with the following content:
     USER_ADDRESS=your_user_address_here
     USER_PASSWORD=your_password_here
 
-##### 2. Create and activate a virtual environment (optional but recommended)
+##### 2. Create and activate a virtual environment
 
     python -m venv venv
 
