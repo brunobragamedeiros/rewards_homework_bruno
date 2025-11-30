@@ -33,3 +33,4 @@ wcwidth==0.2.14
 python-dotenv==1.2.1
 pytest-html==4.1.1
 pre-commit==4.5.0
+pytest-rerunfailures=16.1
