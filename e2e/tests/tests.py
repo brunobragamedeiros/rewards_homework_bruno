@@ -60,7 +60,7 @@ def test_redeem_un_redeem(page):
     ), f"Expected the amount of redeemed points after redeeming {amount_points_after_redeem} to be higher than before {amount_points_after_un_redeem}."
 
 @pytest.mark.require_auth
-@pytest.mark.regression
+@pytest.mark.smoke
 def test_redeem_reward(page):
     """
     - Log into the system with a valid user
@@ -196,7 +196,7 @@ def test_sign_up_confirmation(page, random_email, random_password):
     sign_in_page.validate_alert_message(confirmation_alert)
 
 
-@pytest.mark.smoke
+@pytest.mark.regression
 def test_links(page):
     """
     - Open links
