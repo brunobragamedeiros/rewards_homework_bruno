@@ -60,25 +60,24 @@ Create a `.env` file in the e2e folder with the following content:
 
 ##### Run tests
 
-    pytest tests/tests.py --reruns 2 --html=report.html --self-contained-html
+    pytest tests/tests.py --html=report.html --self-contained-html
 
 You can also add markers for specific groups. Example:
     
     Regression:
-        pytest -m regression tests/tests.py --reruns 2 --html=report.html --self-contained-html
+        pytest -m regression tests/tests.py --html=report.html --self-contained-html
     
     Nightly:
-        pytest -m nightly rests/tests.py --reruns 2 --html=report.html --self-contained-html
+        pytest -m nightly rests/tests.py --html=report.html --self-contained-html
 
     Smoke:
-        pytest -m smoke tests/tests.py --reruns 2 --html=report.html --self-contained-html
+        pytest -m smoke tests/tests.py --html=report.html --self-contained-html
 
 ### Continuous integration
 
 This was my first time coding with Playwright + Pytest. As I found the homework interesting, I wanted to see how it would perform in CI. I created a very basic workflow with video upload and pytest-html report generation (thanks for sharing the CI.yaml, most of the setup was easily reused!). I found out the tests in CI are running less stable than locally, but it was a great learning experience to set up the CI workflow.
 
 ### Remaining challenges
-
 While I did my best to cover the key areas having in mind the system goal and my past experience, there are a few topics that I'd like to have improved in this test suite
 
  - CI: As already mentioned, tests in CI should be more stable. Currently there are 2 tests running as known failures (redeem points return wrong count and about link returning 404) but in CI there are around 4 tests failing
