@@ -16,3 +16,7 @@ class BasePage:
 
     def open_link(self, link):
         self.page.get_by_role("link", name=link).first.click()
+
+    def ensure_page_is_stable(self):
+        self.page.wait_for_load_state("load")
+        self.page.wait_for_load_state("networkidle")

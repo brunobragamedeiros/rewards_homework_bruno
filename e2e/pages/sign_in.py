@@ -11,6 +11,7 @@ class SignInPage(BasePage):
         self.sign_in_button = page.get_by_role("button", name="Sign In")
 
     def sign_in(self, email, password):
+        self.ensure_page_is_stable()
         self.email_field.fill(email)
         self.password_field.fill(password)
         self.sign_in_button.click()

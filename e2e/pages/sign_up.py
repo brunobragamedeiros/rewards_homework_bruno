@@ -11,6 +11,7 @@ class SignUpPage(BasePage):
         self.sign_up_button = page.get_by_role("button", name="Sign Up")
 
     def sign_up(self, email, password, password_confirmation):
+        self.ensure_page_is_stable()
         self.email_field.fill(email)
         self.password_field.fill(password)
         self.password_confirmation_field.fill(password_confirmation)
