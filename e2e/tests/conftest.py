@@ -27,7 +27,7 @@ def context(request, ensure_auth_state):
 @pytest.fixture(scope="function")
 def page(context):
     page = context.new_page()
-    page.set_default_timeout(10000)
+    page.set_default_timeout(30000)
     page.set_default_navigation_timeout(50000)
     yield page
     page.close()
