@@ -47,8 +47,8 @@ Create a `.env` file in the e2e folder with the following content:
 ##### 2. Create and activate a virtual environment
 
     python -m venv venv
-    source venv/bin/activate  **for Linux/macOS**
-    venv\Scripts\activate  **for Windows**
+    source venv/bin/activate  -> for Linux/macOS
+    venv\Scripts\activate     -> for Windows**
 
 ##### 3. Install required packages
 
