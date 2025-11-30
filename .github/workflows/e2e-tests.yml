@@ -1,4 +1,4 @@
-name: CI
+name: E2E - Playwright tests
 
 # Enable Buildkit and let compose use it to speed up image building
 env:
@@ -44,7 +44,6 @@ jobs:
 
       - name: Install Playwright browsers
         run: python -m playwright install
-
 
       - name: Wait for localhost
         run: |
