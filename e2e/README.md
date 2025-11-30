@@ -27,7 +27,7 @@ These test cases are categorized into the following tags:
 
 
 ### Prerequisites
-- Ensure the system is running at: `http://localhost:3030`.
+- Ensure the system is running at: `http://localhost:3030`
 
 ### Steps
 
