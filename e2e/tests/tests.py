@@ -22,13 +22,12 @@ def test_redeem_points_amount(page):
     amount_points_after_redeem = 0
     cost_of_reward = 0
     rewards_page = RewardsPage(page)
+
     page.goto("/")
     rewards_page.add_bonus(15)
-
     rewards_page.redeem_reward(chosen_reward)
     cost_of_reward = rewards_page.get_cost_of_reward(chosen_reward)
     amount_points_after_redeem = rewards_page.get_current_redeemed_points()
-
     assert (
         amount_points_after_redeem == cost_of_reward
     ), (f"The chosen award {chosen_reward} costs {cost_of_reward}pts. "
@@ -49,12 +48,11 @@ def test_redeem_un_redeem(page):
     amount_points_after_redeem = 0
     amount_points_after_un_redeem = 0
     rewards_page = RewardsPage(page)
+
     page.goto("/")
     rewards_page.add_bonus(15)
-
     rewards_page.redeem_reward(chosen_reward)
     amount_points_after_redeem = rewards_page.get_current_redeemed_points()
-
     rewards_page.un_redeem_reward(chosen_reward)
     amount_points_after_un_redeem = rewards_page.get_current_redeemed_points()
     assert (
@@ -83,15 +81,12 @@ def test_redeem_reward(page):
 
     rewards_page.add_bonus(15)
     amount_points_before_claiming = rewards_page.get_current_remaining_points()
-
     rewards_page.redeem_reward(chosen_reward)
     cost_of_reward = rewards_page.get_cost_of_reward(chosen_reward)
     rewards_page.claim_rewards()
-
     rewards_page.validate_alert_message(confirmation_alert)
     amount_points_after_claiming = rewards_page.get_current_remaining_points()
     expected_result = amount_points_before_claiming - float(cost_of_reward)
-
     assert (
         amount_points_after_claiming == expected_result
     ), (f"The chosen award {chosen_reward} costs {cost_of_reward}pts. "
@@ -111,6 +106,7 @@ def test_user_cannot_claim_when_out_of_points(page, add_5_points):
     expected_remaining_points = 0
     remaining_points = 0
     rewards_page = RewardsPage(page)
+
     page.goto("/")
     rewards_page.forfeit_bonus()
     remaining_points = rewards_page.get_current_remaining_points()
@@ -121,9 +117,8 @@ def test_user_cannot_claim_when_out_of_points(page, add_5_points):
        f"but it should be {expected_remaining_points} points as the bonus were forfeited."
     )
 
-
 @pytest.mark.require_auth
-@pytest.mark.regression
+@pytest.mark.smoke
 def test_add_bonus(page):
     """
     - Log into the system with a valid user
@@ -138,6 +133,7 @@ def test_add_bonus(page):
     amount_points_remaining_after = 0
     total_points = 0
     bonus = 15
+
     page.goto("/")
     amount_points_remaining_before = rewards_page.get_current_remaining_points()
     rewards_page.add_bonus(bonus)
@@ -147,12 +143,12 @@ def test_add_bonus(page):
 
     assert (
             amount_points_remaining_after == total_points
-        ), (f"Points after adding bonus were {amount_points_remaining_after} points"
+        ), (f"Points after adding bonus were {amount_points_remaining_after} points "
             f"but should be {total_points} points."
         )
 
 @pytest.mark.require_auth
-@pytest.mark.regression
+@pytest.mark.nightly
 def test_primary_key(page):
     """
     - Log into the system with a valid user
@@ -161,8 +157,8 @@ def test_primary_key(page):
     - User can not remove their own primary email
     """
     print(test_primary_key.__doc__)
-
     email_page = EmailPage(page)
+
     page.goto("/")
     email_page.open_link("My Profile")
     email_page.open_email_section()
@@ -170,8 +166,7 @@ def test_primary_key(page):
     email_page.validate_page_description("The following e-mail addresses are associated with your account")
     email_page.validate_cannot_remove_primary_email("someone@holistiplan.com")
 
-
-@pytest.mark.regression
+@pytest.mark.nightly
 def test_sign_up_confirmation(page, random_email, random_password):
     """
     - Sign up with new credentials
@@ -180,7 +175,6 @@ def test_sign_up_confirmation(page, random_email, random_password):
     - User can not login as the email is not yet verified
     """
     print(test_sign_up_confirmation.__doc__)
-
     sign_up_page = SignUpPage(page)
     sign_in_page = SignInPage(page)
     sign_up_header = "Sign Up"
@@ -202,7 +196,7 @@ def test_sign_up_confirmation(page, random_email, random_password):
     sign_in_page.validate_alert_message(confirmation_alert)
 
 
-@pytest.mark.regression
+@pytest.mark.smoke
 def test_links(page):
     """
     - Open links
@@ -211,6 +205,7 @@ def test_links(page):
     print(test_links.__doc__)
     links = ["holistiplan", "Home", "Sign Up", "Sign In", "About"]
     base_page = BasePage(page)
+
     page.goto("/")
     for linkTitle in links:
         base_page.ensure_page_is_stable()

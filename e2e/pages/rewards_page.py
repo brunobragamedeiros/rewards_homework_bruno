@@ -43,9 +43,11 @@ class RewardsPage(BasePage):
         return reward_cost
 
     def get_current_remaining_points(self):
+        self.page.wait_for_timeout(2000)
         return float(self.points_remaining.inner_text())
 
     def get_current_redeemed_points(self):
+        self.page.wait_for_timeout(2000)
         return float(self.points_redeemed.inner_text())
 
     def get_cookies(self):
