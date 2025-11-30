@@ -7,10 +7,10 @@ Let's talk about automation!
 I created **8 test cases** covering some interesting aspects of the system.  
 These test cases are categorized into the following tags:
 
-- **smoke**
-- **nightly**
-- **regression**
 
+- **regression**
+- **nightly**
+- **smoke**
 
 | Title | Goal | Why? | Tag |
 |------|------|------|------|
@@ -64,15 +64,15 @@ Create a `.env` file in the e2e folder with the following content:
     pytest tests/tests.py --reruns 2 --html=report.html --self-contained-html
 
 You can also add markers for specific groups. Example:
-
-    Smoke:
-        pytest -m smoke tests/tests.py --reruns 2 --html=report.html --self-contained-html
     
     Regression:
         pytest -m regression tests/tests.py --reruns 2 --html=report.html --self-contained-html
     
     Nightly:
         pytest -m nightly rests/tests.py --reruns 2 --html=report.html --self-contained-html
+
+    Smoke:
+        pytest -m smoke tests/tests.py --reruns 2 --html=report.html --self-contained-html
 
 ### Continuous integration
 
