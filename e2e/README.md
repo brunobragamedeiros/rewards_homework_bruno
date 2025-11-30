@@ -41,14 +41,14 @@ These test cases are categorized into the following tags:
 Create a `.env` file in the e2e folder with the following content:
 
     BASE_URL=http://localhost:3000
-    USER_ADDRESS=your_user_address_here
-    USER_PASSWORD=your_password_here
+    USER_ADDRESS=someone@holistiplan.com
+    USER_PASSWORD=bfx!wkp3zve3WUX*guq
 
 ##### 2. Create and activate a virtual environment
 
     python -m venv venv
     source venv/bin/activate  -> for Linux/macOS
-    venv\Scripts\activate     -> for Windows**
+    venv\Scripts\activate     -> for Windows
 
 ##### 3. Install required packages
 
