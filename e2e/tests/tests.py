@@ -48,7 +48,7 @@ def test_redeem_reward(page):
     - Redeem reward by reward name
     - User sees a sucessfull alert message
     """
-    print(test_add_bonus.__doc__)
+    print(test_redeem_reward.__doc__)
     chosen_reward = "Potion of Endless Coffee"
     confirmation_alert = f"You successfully claimed the following rewards: {chosen_reward}"
     amount_points_before_claiming = 0
@@ -80,7 +80,6 @@ def test_user_cannot_claim_when_out_of_points(page, add_5_points):
 
     rewards_page = RewardsPage(page)
     page.goto("/")
-    page.pause()
     rewards_page.forfeit_bonus()
     rewards_page.validate_remaining_points_are_displayed(0)
     rewards_page.validate_user_cannot_claim_rewards()
