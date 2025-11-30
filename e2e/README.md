@@ -76,7 +76,7 @@ You can also add markers for specific groups. Example:
 
 ### Continuous integration
 
-This was my first time coding with Playwright + Pytest. As I found the homework interesting, I wanted to see how it would perform in CI. I created a very basic workflow (thanks for sharing the CI.yaml, most of the setup was easily reused!) with video upload and pytest-html report generation. I found out the tests in CI are running less stable than locally, but it was a great learning experience to set up the CI workflow.
+This was my first time coding with Playwright + Pytest. As I found the homework interesting, I wanted to see how it would perform in CI. I created a very basic workflow with video upload and pytest-html report generation (thanks for sharing the CI.yaml, most of the setup was easily reused!). I found out the tests in CI are running less stable than locally, but it was a great learning experience to set up the CI workflow.
 
 ### Remaining challenges
 
